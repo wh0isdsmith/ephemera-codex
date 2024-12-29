@@ -23,48 +23,54 @@ const GregOSBootScreen = (props) => {
   ];
 
   useEffect(() => {
-    const logMessage = (message, type = 'log') => {
-      switch (type) {
-        case 'warn':
-          console.warn(message);
-          break;
-        case 'error':
-          console.error(message);
-          break;
-        default:
-          console.log(message);
+    let isMounted = true;
+
+    const logMessage = (message) => {
+      if (message.startsWith('ERROR')) {
+        console.error(message);
+      } else if (message.startsWith('WARNING')) {
+        console.warn(message);
+      } else {
+        console.log(message);
       }
     };
-    const timeoutId = setTimeout(() => {
-      if (currentMessageIndex < bootSequence.length) {
-        const currentMessage = bootSequence[currentMessageIndex];
-        const messageType = currentMessage.startsWith('ERROR')
-          ? 'error'
-          : currentMessage.startsWith('WARNING')
-          ? 'warn'
-          : 'log';
-        // Log to console based on message type
-        logMessage(currentMessage, messageType);
-        setMessages((prevMessages) => [...prevMessages, currentMessage]);
-        setCurrentMessageIndex(currentMessageIndex + 1);
-      } else {
-        setLoading(false);
-        // Notify parent component
-        if (props.onBootComplete) {
-          props.onBootComplete();
-        }
-      }
-    }, 1000); // Adjust delay as needed
 
-    return () => clearTimeout(timeoutId);
-  }, [currentMessageIndex]);
+    const runBootSequence = async () => {
+      for (let i = 0; i < bootSequence.length; i++) {
+        await new Promise((resolve) =>
+          setTimeout(resolve, 700 + Math.random() * 700) // variable delay
+        );
+        if (!isMounted) return;
+
+        // Generate an extra memory-related error around the memory check message
+        if (bootSequence[i].includes('Memory check')) {
+          console.error('ERROR: Memory corruption detected on sector 0x0010');
+        }
+
+        logMessage(bootSequence[i]);
+        setMessages((prev) => [...prev, bootSequence[i]]);
+      }
+      setLoading(false);
+      if (props.onBootComplete) props.onBootComplete();
+    };
+
+    runBootSequence();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div className="bg-black text-green-400 font-mono text-lg p-4 h-screen w-screen overflow-y-scroll">
       {messages.map((message, index) => (
         <p key={index}>{message}</p>
       ))}
-      {loading && <p>...</p>}
+      {loading && (
+        <div className="animate-pulse text-center text-green-500 mt-4">
+          <p>Loading GregOS...</p>
+        </div>
+      )}
     </div>
   );
 };
