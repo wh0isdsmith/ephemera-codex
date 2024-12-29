@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const GregOSBootScreen = () => {
+const GregOSBootScreen = (props) => {
   const [messages, setMessages] = useState([]);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -49,6 +49,10 @@ const GregOSBootScreen = () => {
         setCurrentMessageIndex(currentMessageIndex + 1);
       } else {
         setLoading(false);
+        // Notify parent component
+        if (props.onBootComplete) {
+          props.onBootComplete();
+        }
       }
     }, 1000); // Adjust delay as needed
 
