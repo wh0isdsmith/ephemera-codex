@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Example of combining Tailwind classes */
+.gregos-error-message {
+  @apply text-red-500;
+}
