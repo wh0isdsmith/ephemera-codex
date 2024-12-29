@@ -43,7 +43,7 @@ This document is intended for:
 ### 2.3 Operating Environment
 
 *   **Platform:** Web-based application, built and hosted within the Bolt environment.
-*   **Accessibility:**  The website should strive to meet basic accessibility guidelines (WCAG) to be usable by a wider audience, including providing options for adjusting text size, contrast, and animation speed where applicable.
+*   **Accessibility:** The website should strive to meet basic accessibility guidelines (WCAG) to be usable by a wider audience, including providing options for adjusting text size, contrast, and animation speed where applicable.
 *   **Browser Compatibility:** The website should function correctly on modern web browsers (Chrome, Firefox, Safari, Edge).
 *   **Responsiveness:** The website should be responsive and adapt to different screen sizes (desktops, tablets, and mobile devices).
 
@@ -51,9 +51,9 @@ This document is intended for:
 
 *   **Development Environment:** Bolt's WebContainer-based environment, which has limitations regarding native binaries, certain shell commands, and package management (no `pip`, limited `python` and `python3` to standard libraries, no C/C++ compiler).
 *   **Technology Stack:**
-    *   **Frontend:**  [Choose one: React, Vue.js, or Svelte] with JavaScript/TypeScript.
-    *   **Styling:** [Choose one: CSS Modules, styled-components, or Tailwind CSS].
-    *   **State Management (if needed):** [Choose one: Redux, Vuex, or Context API, or Svelte Stores].
+    *   **Frontend:** React with JavaScript/TypeScript.
+    *   **Styling:** Tailwind CSS.
+    *   **State Management:** Context API with useReducer.
 *   **AI Assistants:** Development will heavily rely on Google Gemini (for architectural guidance and problem-solving) and GitHub Copilot (for code completion and implementation).
 *   **Performance:** The website should load quickly and respond smoothly to user interactions, considering the limitations of the Bolt environment.
 
@@ -140,29 +140,29 @@ This document is intended for:
 The website's content will be organized into the following main sections:
 
 *   **Landing Page (GregOS Boot Screen):** The initial point of entry.
-*   **Dashboard:**  Provides an overview and access to other sections.
+*   **Dashboard:** Provides an overview and access to other sections.
 *   **Narrative Logs (INT3RN4L_3RR0R_ST0RY):** Contains the core narrative chapters.
-*   **GregOS System Files:**  Allows exploration of the simulated GregOS file system.
+*   **GregOS System Files:** Allows exploration of the simulated GregOS file system.
 *   **Project Amoratus Schematics:** Presents the technical details of Project Amoratus.
-*   **Ethical Considerations:**  Explores the ethical and philosophical implications of the project.
+*   **Ethical Considerations:** Explores the ethical and philosophical implications of the project.
 
 ## 5. Technical Specifications
 
 *   **Development Environment:** Bolt
-*   **Frontend Framework:** [Choose one: React, Vue.js, or Svelte]
-*   **Styling:** [Choose one: CSS Modules, styled-components, or Tailwind CSS]
-*   **State Management (if needed):** [Choose one: Redux, Vuex, Context API, or Svelte Stores]
+*   **Frontend Framework:** React
+*   **Styling:** Tailwind CSS
+*   **State Management:** Context API with useReducer
 *   **AI Assistants:**
     *   **Google Gemini:** Used for architectural guidance, problem-solving, and understanding the project's context.
     *   **GitHub Copilot:** Used for code completion, implementation, and generating code snippets.
 *   **Version Control (Optional):** If using Bolt's GitHub integration, Git will be used for version control.
-*   **Data Storage:**  Data persistence (if required for user customization or other features) will be handled within the limitations of the Bolt environment.
+*   **Data Storage:** Data persistence (if required for user customization or other features) will be handled within the limitations of the Bolt environment.
 
 ## 6. Visual Design and UI Guidelines
 
 *   **Thematic Consistency:** The visual design should reflect the themes of technology, emotion, and fragmentation present throughout the project.
-*   **Color Palette:**  A color palette that evokes Greg's emotional state and the different facets of the project (e.g., blues and grays for technology, warmer tones for memories, muted colors for grief) should be used. Consider using CSS variables for easy theming.
-*   **Typography:**  Choose typefaces that are both readable and evocative of the project's tone (e.g., monospace for code, a humanist sans-serif for narrative text).
+*   **Color Palette:** A color palette that evokes Greg's emotional state and the different facets of the project (e.g., blues and grays for technology, warmer tones for memories, muted colors for grief) should be used. Consider using CSS variables for easy theming.
+*   **Typography:** Choose typefaces that are both readable and evocative of the project's tone (e.g., monospace for code, a humanist sans-serif for narrative text).
 *   **Subtle Animations and Transitions:** Use subtle animations to enhance interactivity and guide the user's attention, but avoid overwhelming or distracting animations.
 *   **Responsiveness:** The UI should adapt seamlessly to different screen sizes.
 *   **Accessibility:** Adhere to WCAG guidelines to ensure the website is accessible to users with disabilities.
@@ -178,7 +178,7 @@ The website's content will be organized into the following main sections:
 ## 8. Future Enhancements (Out of Scope for Initial Release)
 
 *   **Backend Integration:** A dedicated backend for more robust data management and user accounts.
-*   **Community Features:**  Forums, comment sections, or other features to facilitate user interaction and discussion.
+*   **Community Features:** Forums, comment sections, or other features to facilitate user interaction and discussion.
 *   **Advanced Personalization:** More sophisticated algorithms for tailoring the user experience based on behavior and preferences.
 *   **Mobile App:** A dedicated mobile application for a more native experience.
 
